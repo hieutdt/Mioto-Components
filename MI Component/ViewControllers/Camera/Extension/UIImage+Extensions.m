@@ -6,9 +6,9 @@
 //  Copyright © 2020 HieuTDT. All rights reserved.
 //
 
-#import "UIImage+Filter.h"
+#import "UIImage+Extensions.h"
 
-@implementation UIImage (Filter)
+@implementation UIImage (Extensions)
 
 - (UIImage *)addFilter:(NSString *)filterType {
     
@@ -54,6 +54,44 @@
     return [UIImage imageWithCGImage:fixedOrientationImage.CGImage
                                scale:fixedOrientationImage.scale
                          orientation:orientation];
+}
+
++ (UIImage *)rotatedImage:(UIImage *)image rotation:(CGFloat)rotation // rotation in radians
+{
+    // Calculate Destination Size
+    CGAffineTransform t = CGAffineTransformMakeRotation(rotation);
+    CGRect sizeRect = (CGRect) {.size = image.size};
+    CGRect destRect = CGRectApplyAffineTransform(sizeRect, t);
+    CGSize destinationSize = destRect.size;
+    
+    // Draw image
+    UIGraphicsBeginImageContext(destinationSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, destinationSize.width / 2.0f, destinationSize.height / 2.0f);
+    CGContextRotateCTM(context, rotation);
+    [image drawInRect:CGRectMake(-image.size.width / 2.0f, -image.size.height / 2.0f,
+                                 image.size.width, image.size.height)];
+    
+    // Save image
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
++ (CGFloat)DegreesToRadians:(CGFloat)degrees {
+    return degrees * M_PI / 180;
+};
+
++ (CGFloat)RadiansToDegrees:(CGFloat) radians {
+    return radians * 180 / M_PI;
+};
+
++ (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return destImage;
 }
 
 @end

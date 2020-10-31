@@ -50,7 +50,9 @@
 }
 
 - (IBAction)showCameraButtonTapped:(id)sender {
-    THCameraViewController *vc = [[THCameraViewController alloc] init];
+//    THCameraViewController *vc = [[THCameraViewController alloc] init];
+//    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    THPreviewImageViewController *vc = [[THPreviewImageViewController alloc] init];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
 
     [self presentViewController:vc animated:YES completion:nil];

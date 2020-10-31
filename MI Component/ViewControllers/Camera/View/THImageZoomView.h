@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id)initWithFrame:(CGRect)frame image:(UIImage *)image;
 
+- (void)setImage:(UIImage *)image;
+
 @end
 
 NS_ASSUME_NONNULL_END

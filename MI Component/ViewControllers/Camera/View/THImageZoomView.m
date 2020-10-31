@@ -22,11 +22,19 @@
         [_imageView setContentMode:UIViewContentModeScaleAspectFill];
         [_imageView setUserInteractionEnabled:YES];
         
+        self.backgroundColor = UIColor.blackColor;
+        
         [self addSubview:_imageView];
         
         [self setUpScrollView];
     }
     return self;
+}
+
+- (void)setImage:(UIImage *)image {
+    [_imageView setImage:image];
+    _imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    [self setUpScrollView];
 }
 
 - (void)setUpScrollView {
@@ -38,11 +46,15 @@
     CGFloat scaleWidth = scrollViewFrame.size.width / self.contentSize.width;
     CGFloat scaleHeight = scrollViewFrame.size.height / self.contentSize.height;
     CGFloat minScale = MIN(scaleWidth, scaleHeight);
+    CGFloat initialScale = MAX(scaleWidth, scaleHeight);
     
     self.minimumZoomScale = minScale;
     self.maximumZoomScale = 2;
     
-//    [self centerScrollViewContent];
+    [self centerScrollViewContent];
+    
+    // Don't zoom image when init this view.
+    self.zoomScale = initialScale;
 }
 
 - (void)centerScrollViewContent {

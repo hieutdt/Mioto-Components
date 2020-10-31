@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,7 +26,7 @@
 		D2494C7A2543CCDB000CF37F /* PaintCodeFile.pcvd in Resources */ = {isa = PBXBuildFile; fileRef = D2494C6C2543CCDB000CF37F /* PaintCodeFile.pcvd */; };
 		D2494C7B2543CCDB000CF37F /* CameraSessionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2494C6E2543CCDB000CF37F /* CameraSessionView.m */; };
 		D2494C8F2543CDA6000CF37F /* THCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2494C8E2543CDA6000CF37F /* THCameraViewController.m */; };
-		D250763C2544041500E261C3 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = D250763B2544041500E261C3 /* UIImage+Filter.m */; };
+		D250763C2544041500E261C3 /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D250763B2544041500E261C3 /* UIImage+Extensions.m */; };
 		D25D36DC25443359003E6CF8 /* THImageZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = D25D36DB25443359003E6CF8 /* THImageZoomView.m */; };
 		D2609E7925048FBF00E8E90A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2609E7825048FBF00E8E90A /* AppDelegate.m */; };
 		D2609E7C25048FBF00E8E90A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2609E7B25048FBF00E8E90A /* SceneDelegate.m */; };
@@ -42,6 +42,9 @@
 		D26786D8253AB0E9008C08BB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26786D7253AB0E9008C08BB /* SecondViewController.swift */; };
 		D2785D39250632E100C0273F /* BottomSheetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2785D38250632E100C0273F /* BottomSheetManager.m */; };
 		D2785D3A250632E100C0273F /* BottomSheetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2785D38250632E100C0273F /* BottomSheetManager.m */; };
+		D2B558CF254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */; };
+		D2B558D0254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */; };
+		D2B558EF254D5341001D1F27 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B558EE254D5341001D1F27 /* Masonry.framework */; };
 		D2C0281E250499E000CF7704 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C0281D250499E000CF7704 /* UIView+Additions.m */; };
 		D2C0281F250499E000CF7704 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C0281D250499E000CF7704 /* UIView+Additions.m */; };
 		D2C0A87F2543C2E70015F2D8 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C0A87E2543C2E70015F2D8 /* AppUtility.swift */; };
@@ -98,8 +101,8 @@
 		D2494C6F2543CCDB000CF37F /* CameraSessionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraSessionView.h; sourceTree = "<group>"; };
 		D2494C8D2543CDA6000CF37F /* THCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THCameraViewController.h; sourceTree = "<group>"; };
 		D2494C8E2543CDA6000CF37F /* THCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THCameraViewController.m; sourceTree = "<group>"; };
-		D250763A2544041500E261C3 /* UIImage+Filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
-		D250763B2544041500E261C3 /* UIImage+Filter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
+		D250763A2544041500E261C3 /* UIImage+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
+		D250763B2544041500E261C3 /* UIImage+Extensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
 		D25D36DA25443359003E6CF8 /* THImageZoomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THImageZoomView.h; sourceTree = "<group>"; };
 		D25D36DB25443359003E6CF8 /* THImageZoomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THImageZoomView.m; sourceTree = "<group>"; };
 		D2609E7425048FBF00E8E90A /* MI Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MI Component.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +127,9 @@
 		D26786D7253AB0E9008C08BB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D2785D37250632E100C0273F /* BottomSheetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomSheetManager.h; sourceTree = "<group>"; };
 		D2785D38250632E100C0273F /* BottomSheetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomSheetManager.m; sourceTree = "<group>"; };
+		D2B558CD254D4E7D001D1F27 /* THFilterThumbImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterThumbImageCell.h; sourceTree = "<group>"; };
+		D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterThumbImageCell.m; sourceTree = "<group>"; };
+		D2B558EE254D5341001D1F27 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = Framework/Masonry.framework; sourceTree = "<group>"; };
 		D2C0281C250499E000CF7704 /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		D2C0281D250499E000CF7704 /* UIView+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		D2C0A87E2543C2E70015F2D8 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B558EF254D5341001D1F27 /* Masonry.framework in Frameworks */,
 				9EA5A52E0D835E0B1BB5773E /* Pods_MI_Component.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +166,7 @@
 		63C02483D3C71E90C1AFE560 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2B558EE254D5341001D1F27 /* Masonry.framework */,
 				243641118FE60046277EB39B /* Pods_MI_Component.framework */,
 				DA075C2B15FEF0DA10EC6F5E /* Pods_MI_ComponentTests.framework */,
 			);
@@ -292,8 +300,8 @@
 		D25D36D82544332A003E6CF8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D250763A2544041500E261C3 /* UIImage+Filter.h */,
-				D250763B2544041500E261C3 /* UIImage+Filter.m */,
+				D250763A2544041500E261C3 /* UIImage+Extensions.h */,
+				D250763B2544041500E261C3 /* UIImage+Extensions.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -303,6 +311,8 @@
 			children = (
 				D25D36DA25443359003E6CF8 /* THImageZoomView.h */,
 				D25D36DB25443359003E6CF8 /* THImageZoomView.m */,
+				D2B558CD254D4E7D001D1F27 /* THFilterThumbImageCell.h */,
+				D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,12 +573,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B558CF254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */,
 				D2C0A87F2543C2E70015F2D8 /* AppUtility.swift in Sources */,
 				D2D4D8CA2515B9C20069FC0D /* SelectItemCollectionCell.m in Sources */,
 				D2785D39250632E100C0273F /* BottomSheetManager.m in Sources */,
 				D2494C792543CCDB000CF37F /* CameraFlashButton.m in Sources */,
 				D2D4D8D42515BAF70069FC0D /* SelectItemModel.m in Sources */,
-				D250763C2544041500E261C3 /* UIImage+Filter.m in Sources */,
+				D250763C2544041500E261C3 /* UIImage+Extensions.m in Sources */,
 				D2494C752543CCDB000CF37F /* CameraFocalReticule.m in Sources */,
 				D26786D8253AB0E9008C08BB /* SecondViewController.swift in Sources */,
 				D2494C712543CCDB000CF37F /* CaptureSessionManager.m in Sources */,
@@ -598,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B558D0254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */,
 				D2D4D8DD2515C3150069FC0D /* SelectItemCollection.m in Sources */,
 				D2D4D8CB2515B9C20069FC0D /* SelectItemCollectionCell.m in Sources */,
 				D2785D3A250632E100C0273F /* BottomSheetManager.m in Sources */,
@@ -688,7 +700,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -740,7 +752,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -759,6 +771,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = "MI Component/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -785,6 +798,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Framework",
 				);
 				INFOPLIST_FILE = "MI Component/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

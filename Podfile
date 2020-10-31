@@ -6,7 +6,6 @@ target 'MI Component' do
   use_frameworks!
 
   # Pods for MI Component
-  pod camerakit-ios
 
   target 'MI ComponentTests' do
     inherit! :search_paths
