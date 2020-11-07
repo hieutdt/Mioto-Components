@@ -47,23 +47,44 @@
     
     self.backgroundColor = [UIColor clearColor];
     
+    _imgView = [[UIImageView alloc] init];
     [self addSubview:_imgView];
     
     [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self);
-        make.bottom.equalTo(self);
-        make.left.equalTo(self);
-        make.right.equalTo(self);
+        make.top.equalTo(self.mas_top);
+        make.bottom.equalTo(self.mas_bottom);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.mas_right);
     }];
     
     _imgView.layer.masksToBounds = YES;
-    _imgView.layer.cornerRadius = 5;
+    _imgView.layer.cornerRadius = 10;
+    if (self.isSelected) {
+        _imgView.layer.borderColor = [UIColor systemYellowColor].CGColor;
+    } else {
+        _imgView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    }
+    _imgView.layer.borderWidth = 2;
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    _imgView.layer.borderColor = [UIColor lightGrayColor].CGColor;
 }
 
 #pragma mark - Setters
 
 - (void)setImage:(UIImage *)image {
     [_imgView setImage:image];
+}
+
+- (void)setIsSelected:(BOOL)isSelected {
+    _isSelected = isSelected;
+    if (_isSelected) {
+        _imgView.layer.borderColor = [UIColor systemYellowColor].CGColor;
+    } else {
+        _imgView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    }
 }
 
 @end

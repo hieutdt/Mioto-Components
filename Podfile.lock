@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: 77fa089ee490eca2bc5c717a2e16c654cff68607
+PODS:
+  - iOSPhotoEditor (1.0.0)
+  - Masonry (1.1.0)
+
+DEPENDENCIES:
+  - iOSPhotoEditor
+  - Masonry
+
+SPEC REPOS:
+  trunk:
+    - iOSPhotoEditor
+    - Masonry
+
+SPEC CHECKSUMS:
+  iOSPhotoEditor: 2951f35246a31dcb428b6292248a9c065582d03e
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+
+PODFILE CHECKSUM: 022c1a37b29cb1570ae20934bfe435b3e54b313b
 
 COCOAPODS: 1.9.3

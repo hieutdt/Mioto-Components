@@ -33,7 +33,7 @@
 
 - (void)setImage:(UIImage *)image {
     [_imageView setImage:image];
-    _imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+//    _imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     [self setUpScrollView];
 }
 
@@ -74,6 +74,26 @@
     }
     
     _imageView.frame = contentFrame;
+}
+
+- (UIImage *)cropImageAndSave:(BOOL)save saveCompletion:(dispatch_block_t)completion {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, [UIScreen mainScreen].scale);
+    CGPoint offset = self.contentOffset;
+    
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), -offset.x, -offset.y);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    if (save) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        
+        completion();
+    }
+    
+    return image;
 }
 
 #pragma mark - UIScrollViewDelegate

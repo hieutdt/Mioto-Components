@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface THFilterThumbImageCell : UICollectionViewCell
 
+@property (nonatomic, assign) BOOL isSelected;
+
 - (void)setImage:(UIImage *)image;
 
 @end

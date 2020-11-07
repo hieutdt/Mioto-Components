@@ -13,10 +13,14 @@
 
 #define SCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
 #define SCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
+
 #define WEAKSELF __weak typeof(self) weakSelf = self;
 #define STRONGSELF __strong typeof(self) strongSelf = weakSelf;
 
-@interface THPreviewImageViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface THPreviewImageViewController ()
+<UICollectionViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout>
 
 /// Containers
 @property (weak, nonatomic) IBOutlet UIView *imageViewContainer;
@@ -28,6 +32,8 @@
 @property (nonatomic, strong) THImageZoomView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *carBorderImgView;
 
+@property (nonatomic, strong) UIImage *originalImage;
+
 /// Bottom buttons
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
@@ -36,12 +42,18 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *filterCollectionView;
 @property (nonatomic, strong) NSMutableArray<UIImage *> *filterImages;
 @property (nonatomic, strong) NSArray *imageFilterNames;
+@property (nonatomic, assign) NSInteger selectedFilterIndex;
 
 /// Layout constraints
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *carBorderWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *carBorderHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *filterViewTopConstraint;
+
+@property (nonatomic, assign) CGFloat filterViewTopSpace;
+
+/// SerialQueue for handle task
+@property (nonatomic, strong) dispatch_queue_t serialQueue;
 
 @end
 
@@ -52,11 +64,11 @@
     
     _imageForPreview = [UIImage imageNamed:@"car"];
     
-    _filterCollectionView.delegate = self;
-    _filterCollectionView.dataSource = self;
+    [_filterCollectionView registerClass:[THFilterThumbImageCell class]
+              forCellWithReuseIdentifier:@"filterReuseId"];
     
     _filterImages = [[NSMutableArray alloc] init];
-    _imageFilterNames =  @[
+    _imageFilterNames = @[
         kFilterTypeChrome,
         kFilterTypeFade,
         kFilterTypeInstant,
@@ -66,6 +78,13 @@
         kFilterTypeTonal,
         kFilterTypeTransfer
     ];
+    
+    _selectedFilterIndex = -1;
+    
+    // Create original image for not apply filter case
+    _originalImage = [UIImage imageWithData:UIImagePNGRepresentation(_imageForPreview)];
+    
+    _serialQueue = dispatch_queue_create("FilterQueue", DISPATCH_QUEUE_SERIAL);
     
     // Create filter view.
     WEAKSELF
@@ -85,13 +104,14 @@
     }
      
     // Fix orientation of image and change to landscape
-    _imageForPreview = [_imageForPreview changeImageOrientation:UIImageOrientationLeft];
+//    _imageForPreview = [_imageForPreview changeImageOrientation:UIImageOrientationLeft];
     
     // Init background color
     self.view.backgroundColor = UIColor.blackColor;
     self.imageViewContainer.backgroundColor = UIColor.darkTextColor;
     self.imageSuperView.backgroundColor = UIColor.darkTextColor;
     self.filterViewContainer.backgroundColor = UIColor.blackColor;
+    self.filterCollectionView.backgroundColor = UIColor.blackColor;
     
     // Calculate constraints
     CGFloat whRatio = 4/3.f;
@@ -112,39 +132,57 @@
                                                   image:_imageForPreview];
     [_imageSuperView addSubview:_imageView];
     
+    _filterViewTopSpace = [UIScreen mainScreen].bounds.size.height - 100 - 150;
+    _filterViewTopConstraint.constant = _filterViewTopSpace;
+    
     // Default is hide filter view
     [self hideFilterView];
-    
-    [self.view layoutIfNeeded];
 }
 
 #pragma mark - Utils
 
 - (void)showFilterView {
-    self.filterViewHeightConstraint.constant = 150;
+    _filterViewTopConstraint.constant = _filterViewTopSpace;
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutSubviews];
     }];
 }
 
 - (void)hideFilterView {
-    self.filterViewHeightConstraint.constant = 0;
+    _filterViewTopConstraint.constant = _filterViewTopSpace + 150;
     [UIView animateWithDuration:0.5 animations:^{
         [self.view layoutSubviews];
     }];
 }
 
 - (BOOL)isFilterShowing {
-    return self.filterViewHeightConstraint.constant != 0;
+    return self.imageViewHeightConstraint.constant == _filterViewTopSpace + 150;
+}
+
+/// Apply filter for rendering preview image.
+/// @param filterName filterName for apply.
+/// @param completion callback when filter task done.
+- (void)applyFilterName:(NSString *)filterName
+         withCompletion:(void (^)(void))completion {
+    WEAKSELF
+    dispatch_async(_serialQueue, ^{
+        STRONGSELF
+        strongSelf.imageForPreview = [strongSelf.originalImage addFilter:filterName];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion();
+            }
+        });
+    });
 }
 
 /// Create all thumb filtered images for showing in Filter View.
 - (void)createFilterImagesWithCompletion:(void (^)(void))completion {
     
     // This action is so heavy, so we do this task in background thread.
-    dispatch_queue_t serialQueue = dispatch_queue_create("FilterQueue", DISPATCH_QUEUE_SERIAL);
     WEAKSELF
-    dispatch_async(serialQueue, ^{
+    dispatch_async(_serialQueue, ^{
         STRONGSELF
         UIImage *thumbOriginalImage = [UIImage imageWithImage:strongSelf.imageForPreview
                                                 convertToSize:CGSizeMake(60, 40)];
@@ -155,10 +193,22 @@
         }
         
         // Callback
-        if (completion) {
-            completion();
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion();
+            }
+        });
     });
+}
+
+- (void)didSelectedAllAnothorCells {
+    for (int i = 0; i < _imageFilterNames.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        THFilterThumbImageCell *cell = (THFilterThumbImageCell *)[_filterCollectionView cellForItemAtIndexPath:indexPath];
+        if (cell && i != _selectedFilterIndex) {
+            [cell setIsSelected:NO];
+        }
+    }
 }
 
 #pragma mark - Finish actions
@@ -168,13 +218,17 @@
 }
 
 - (IBAction)finishButtonTapped:(id)sender {
+    UIImage *finalImage = [UIImage imageWithCGImage:_imageForPreview.CGImage];
+    finalImage = [UIImage imageWithImage:finalImage convertToSize:CGSizeMake(1920, 1080)];
     
+    NSLog(@"Final Image> Size = %f - %f", finalImage.size.width, finalImage.size.height);
 }
 
-#pragma mark - Edit actions
+#pragma mark - Edit actionss
 
 - (IBAction)rotateButtonTapped:(id)sender {
     _imageForPreview = [UIImage rotatedImage:_imageForPreview rotation:[UIImage DegreesToRadians:90]];
+    _originalImage = [UIImage imageWithCGImage:_imageForPreview.CGImage];
     [_imageView setImage:_imageForPreview];
 }
 
@@ -210,8 +264,9 @@
         cell = [[THFilterThumbImageCell alloc] init];
     }
     
-    NSInteger index = [indexPath item];
+    NSInteger index = indexPath.row;
     [cell setImage:[_filterImages objectAtIndex:index]];
+    [cell setIsSelected:index == _selectedFilterIndex];
     
     return cell;
 }
@@ -220,8 +275,39 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(60, 40);
+                sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(100, 75);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView
+        didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger oldIndex = _selectedFilterIndex;
+    
+    // Toggle selected state
+    THFilterThumbImageCell *cell = (THFilterThumbImageCell *)[_filterCollectionView cellForItemAtIndexPath:indexPath];
+    
+    if ([cell isSelected]) {
+        _selectedFilterIndex = -1;
+    } else {
+        _selectedFilterIndex = indexPath.item;
+    }
+    
+    [cell setIsSelected:indexPath.item == _selectedFilterIndex];
+    
+    // Deselected previous selected cell
+    if (oldIndex >= 0) {
+        THFilterThumbImageCell *oldCell = (THFilterThumbImageCell *)[_filterCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:oldIndex inSection:0]];
+        [oldCell setIsSelected:NO];
+    }
+    
+    // Apply filter for preview image views
+    WEAKSELF
+    [self applyFilterName:[_imageFilterNames objectAtIndex:indexPath.item]
+           withCompletion:^{
+        STRONGSELF
+        [strongSelf.imageView setImage:strongSelf.imageForPreview];
+    }];
 }
 
 @end

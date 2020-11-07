@@ -35,6 +35,8 @@ static NSString *kFilterTypeTransfer    = @"CIPhotoEffectTransfer";
 
 + (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size;
 
++ (UIImage *)imageFromView:(UIView *)view;
+
 @end
 
 NS_ASSUME_NONNULL_END

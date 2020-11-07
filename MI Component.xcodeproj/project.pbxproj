@@ -44,7 +44,6 @@
 		D2785D3A250632E100C0273F /* BottomSheetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2785D38250632E100C0273F /* BottomSheetManager.m */; };
 		D2B558CF254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */; };
 		D2B558D0254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */; };
-		D2B558EF254D5341001D1F27 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B558EE254D5341001D1F27 /* Masonry.framework */; };
 		D2C0281E250499E000CF7704 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C0281D250499E000CF7704 /* UIView+Additions.m */; };
 		D2C0281F250499E000CF7704 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C0281D250499E000CF7704 /* UIView+Additions.m */; };
 		D2C0A87F2543C2E70015F2D8 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C0A87E2543C2E70015F2D8 /* AppUtility.swift */; };
@@ -129,7 +128,6 @@
 		D2785D38250632E100C0273F /* BottomSheetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomSheetManager.m; sourceTree = "<group>"; };
 		D2B558CD254D4E7D001D1F27 /* THFilterThumbImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterThumbImageCell.h; sourceTree = "<group>"; };
 		D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterThumbImageCell.m; sourceTree = "<group>"; };
-		D2B558EE254D5341001D1F27 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = Framework/Masonry.framework; sourceTree = "<group>"; };
 		D2C0281C250499E000CF7704 /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
 		D2C0281D250499E000CF7704 /* UIView+Additions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		D2C0A87E2543C2E70015F2D8 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2B558EF254D5341001D1F27 /* Masonry.framework in Frameworks */,
 				9EA5A52E0D835E0B1BB5773E /* Pods_MI_Component.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,7 +163,6 @@
 		63C02483D3C71E90C1AFE560 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D2B558EE254D5341001D1F27 /* Masonry.framework */,
 				243641118FE60046277EB39B /* Pods_MI_Component.framework */,
 				DA075C2B15FEF0DA10EC6F5E /* Pods_MI_ComponentTests.framework */,
 			);
@@ -429,6 +425,7 @@
 				D2609E7025048FBF00E8E90A /* Sources */,
 				D2609E7125048FBF00E8E90A /* Frameworks */,
 				D2609E7225048FBF00E8E90A /* Resources */,
+				DB20A6B3A1FE52E4AF9B0D4B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -542,6 +539,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB20A6B3A1FE52E4AF9B0D4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MI Component/Pods-MI Component-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MI Component/Pods-MI Component-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MI Component/Pods-MI Component-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FDAD17758CE2B90AD8AF9229 /* [CP] Check Pods Manifest.lock */ = {
@@ -778,6 +792,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LIBTOOLFLAGS = "$(inherited)";
+				"OTHER_LIBTOOLFLAGS[sdk=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "hieutdt.zalo.MI-Component";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MI Component/ViewControllers/MI Component-Bridging-Header.h";
@@ -805,6 +821,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LIBTOOLFLAGS = "$(inherited)";
+				"OTHER_LIBTOOLFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "hieutdt.zalo.MI-Component";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MI Component/ViewControllers/MI Component-Bridging-Header.h";

@@ -6,6 +6,8 @@ target 'MI Component' do
   use_frameworks!
 
   # Pods for MI Component
+  pod 'Masonry'
+  pod 'iOSPhotoEditor'
 
   target 'MI ComponentTests' do
     inherit! :search_paths
