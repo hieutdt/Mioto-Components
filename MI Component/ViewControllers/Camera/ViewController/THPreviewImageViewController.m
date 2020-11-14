@@ -10,12 +10,7 @@
 #import "UIImage+Extensions.h"
 #import "THImageZoomView.h"
 #import "THFilterThumbImageCell.h"
-
-#define SCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
-#define SCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
-
-#define WEAKSELF __weak typeof(self) weakSelf = self;
-#define STRONGSELF __strong typeof(self) strongSelf = weakSelf;
+#import "THComponents.h"
 
 @interface THPreviewImageViewController ()
 <UICollectionViewDelegate,

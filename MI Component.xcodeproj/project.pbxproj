@@ -42,6 +42,15 @@
 		D26786D8253AB0E9008C08BB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26786D7253AB0E9008C08BB /* SecondViewController.swift */; };
 		D2785D39250632E100C0273F /* BottomSheetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2785D38250632E100C0273F /* BottomSheetManager.m */; };
 		D2785D3A250632E100C0273F /* BottomSheetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D2785D38250632E100C0273F /* BottomSheetManager.m */; };
+		D296DC1F25565FA10070526F /* THDialogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC1E25565FA10070526F /* THDialogManager.m */; };
+		D296DC2025565FA10070526F /* THDialogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC1E25565FA10070526F /* THDialogManager.m */; };
+		D296DC27255660360070526F /* THDialogView.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC26255660360070526F /* THDialogView.m */; };
+		D296DC28255660360070526F /* THDialogView.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC26255660360070526F /* THDialogView.m */; };
+		D296DC2D255662030070526F /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC2C255662030070526F /* THButton.m */; };
+		D296DC2E255662030070526F /* THButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC2C255662030070526F /* THButton.m */; };
+		D296DC3525566D860070526F /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D250763B2544041500E261C3 /* UIImage+Extensions.m */; };
+		D296DC3C25566DB30070526F /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC3B25566DB30070526F /* UIColor+Extensions.m */; };
+		D296DC3D25566DB30070526F /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D296DC3B25566DB30070526F /* UIColor+Extensions.m */; };
 		D2B558CF254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */; };
 		D2B558D0254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */; };
 		D2C0281E250499E000CF7704 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C0281D250499E000CF7704 /* UIView+Additions.m */; };
@@ -126,6 +135,15 @@
 		D26786D7253AB0E9008C08BB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D2785D37250632E100C0273F /* BottomSheetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BottomSheetManager.h; sourceTree = "<group>"; };
 		D2785D38250632E100C0273F /* BottomSheetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BottomSheetManager.m; sourceTree = "<group>"; };
+		D296DC1D25565FA10070526F /* THDialogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THDialogManager.h; sourceTree = "<group>"; };
+		D296DC1E25565FA10070526F /* THDialogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THDialogManager.m; sourceTree = "<group>"; };
+		D296DC25255660360070526F /* THDialogView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THDialogView.h; sourceTree = "<group>"; };
+		D296DC26255660360070526F /* THDialogView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THDialogView.m; sourceTree = "<group>"; };
+		D296DC2B255662030070526F /* THButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THButton.h; sourceTree = "<group>"; };
+		D296DC2C255662030070526F /* THButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THButton.m; sourceTree = "<group>"; };
+		D296DC322556629F0070526F /* THComponents.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc.preprocessed; name = THComponents.h; path = "MI Component/THComponents.h"; sourceTree = SOURCE_ROOT; };
+		D296DC3A25566DB30070526F /* UIColor+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		D296DC3B25566DB30070526F /* UIColor+Extensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
 		D2B558CD254D4E7D001D1F27 /* THFilterThumbImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THFilterThumbImageCell.h; sourceTree = "<group>"; };
 		D2B558CE254D4E7D001D1F27 /* THFilterThumbImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THFilterThumbImageCell.m; sourceTree = "<group>"; };
 		D2C0281C250499E000CF7704 /* UIView+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
@@ -197,6 +215,8 @@
 			children = (
 				D225F48E2515C8F700065C5A /* VerticalIconTextButton.h */,
 				D225F48F2515C8F700065C5A /* VerticalIconTextButton.m */,
+				D296DC2B255662030070526F /* THButton.h */,
+				D296DC2C255662030070526F /* THButton.m */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -275,7 +295,6 @@
 			children = (
 				D2494C542543CCDB000CF37F /* CustomizableCamera */,
 				D25D36D925443339003E6CF8 /* View */,
-				D25D36D82544332A003E6CF8 /* Extension */,
 				D25D36D72544331F003E6CF8 /* ViewController */,
 			);
 			path = Camera;
@@ -291,15 +310,6 @@
 				D2275D88252AED2F0015F51C /* THPreviewImageViewController.xib */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		D25D36D82544332A003E6CF8 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				D250763A2544041500E261C3 /* UIImage+Extensions.h */,
-				D250763B2544041500E261C3 /* UIImage+Extensions.m */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		D25D36D925443339003E6CF8 /* View */ = {
@@ -350,6 +360,7 @@
 				D2609E8B25048FC100E8E90A /* Info.plist */,
 				D2609E8C25048FC100E8E90A /* main.m */,
 				D2609E8325048FBF00E8E90A /* MI_Component.xcdatamodeld */,
+				D296DC322556629F0070526F /* THComponents.h */,
 			);
 			path = "MI Component";
 			sourceTree = "<group>";
@@ -366,6 +377,7 @@
 		D2609EA125048FF000E8E90A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D296DC1C25565F5C0070526F /* Dialog */,
 				D225F48D2515C8E900065C5A /* Buttons */,
 				D2D4D8C62515B9700069FC0D /* SelectItemCollection */,
 				D2609EA62504976400E8E90A /* BottomSheet */,
@@ -384,11 +396,26 @@
 			path = BottomSheet;
 			sourceTree = "<group>";
 		};
+		D296DC1C25565F5C0070526F /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				D296DC1D25565FA10070526F /* THDialogManager.h */,
+				D296DC1E25565FA10070526F /* THDialogManager.m */,
+				D296DC25255660360070526F /* THDialogView.h */,
+				D296DC26255660360070526F /* THDialogView.m */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		D2C02813250498EF00CF7704 /* Extensions (Category) */ = {
 			isa = PBXGroup;
 			children = (
+				D250763A2544041500E261C3 /* UIImage+Extensions.h */,
+				D250763B2544041500E261C3 /* UIImage+Extensions.m */,
 				D2C0281C250499E000CF7704 /* UIView+Additions.h */,
 				D2C0281D250499E000CF7704 /* UIView+Additions.m */,
+				D296DC3A25566DB30070526F /* UIColor+Extensions.h */,
+				D296DC3B25566DB30070526F /* UIColor+Extensions.m */,
 			);
 			path = "Extensions (Category)";
 			sourceTree = "<group>";
@@ -596,6 +623,7 @@
 				D250763C2544041500E261C3 /* UIImage+Extensions.m in Sources */,
 				D2494C752543CCDB000CF37F /* CameraFocalReticule.m in Sources */,
 				D26786D8253AB0E9008C08BB /* SecondViewController.swift in Sources */,
+				D296DC27255660360070526F /* THDialogView.m in Sources */,
 				D2494C712543CCDB000CF37F /* CaptureSessionManager.m in Sources */,
 				D2609E8D25048FC100E8E90A /* main.m in Sources */,
 				D2609E7F25048FBF00E8E90A /* ViewController.m in Sources */,
@@ -603,17 +631,20 @@
 				D2494C8F2543CDA6000CF37F /* THCameraViewController.m in Sources */,
 				D2494C732543CCDB000CF37F /* CameraStyleKitClass.m in Sources */,
 				D2609EA42504900A00E8E90A /* BottomSheet.m in Sources */,
+				D296DC3C25566DB30070526F /* UIColor+Extensions.m in Sources */,
 				D2494C772543CCDB000CF37F /* CameraToggleButton.m in Sources */,
 				D2494C702543CCDB000CF37F /* Constants.m in Sources */,
 				D2609E8525048FBF00E8E90A /* MI_Component.xcdatamodeld in Sources */,
 				D2609E7925048FBF00E8E90A /* AppDelegate.m in Sources */,
 				D2494C782543CCDB000CF37F /* LaunchCameraButton.m in Sources */,
+				D296DC1F25565FA10070526F /* THDialogManager.m in Sources */,
 				D2494C742543CCDB000CF37F /* CameraDismissButton.m in Sources */,
 				D2C0281E250499E000CF7704 /* UIView+Additions.m in Sources */,
 				D2275D89252AED2F0015F51C /* THPreviewImageViewController.m in Sources */,
 				D2494C762543CCDB000CF37F /* CameraShutterButton.m in Sources */,
 				D2609E7C25048FBF00E8E90A /* SceneDelegate.m in Sources */,
 				D2D4D8DC2515C3150069FC0D /* SelectItemCollection.m in Sources */,
+				D296DC2D255662030070526F /* THButton.m in Sources */,
 				D2494C7B2543CCDB000CF37F /* CameraSessionView.m in Sources */,
 				D225F4902515C8F700065C5A /* VerticalIconTextButton.m in Sources */,
 			);
@@ -624,9 +655,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B558D0254D4E7D001D1F27 /* THFilterThumbImageCell.m in Sources */,
+				D296DC3D25566DB30070526F /* UIColor+Extensions.m in Sources */,
+				D296DC2E255662030070526F /* THButton.m in Sources */,
 				D2D4D8DD2515C3150069FC0D /* SelectItemCollection.m in Sources */,
 				D2D4D8CB2515B9C20069FC0D /* SelectItemCollectionCell.m in Sources */,
+				D296DC2025565FA10070526F /* THDialogManager.m in Sources */,
+				D296DC28255660360070526F /* THDialogView.m in Sources */,
 				D2785D3A250632E100C0273F /* BottomSheetManager.m in Sources */,
+				D296DC3525566D860070526F /* UIImage+Extensions.m in Sources */,
 				D2D4D8D52515BAF70069FC0D /* SelectItemModel.m in Sources */,
 				D2C0281F250499E000CF7704 /* UIView+Additions.m in Sources */,
 				D2609EA52504900A00E8E90A /* BottomSheet.m in Sources */,
@@ -782,6 +818,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC54UPHUD4;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -798,6 +835,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MI Component/ViewControllers/MI Component-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -811,6 +849,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VC54UPHUD4;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -826,6 +865,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "hieutdt.zalo.MI-Component";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MI Component/ViewControllers/MI Component-Bridging-Header.h";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,21 +40,32 @@
                                     <action selector="showCameraButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ukm-Ba-6Xn"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ma-4s-8ep" customClass="THButton">
+                                <rect key="frame" x="100" y="770" width="214" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="qgd-wc-Gw9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3ma-4s-8ep" secondAttribute="trailing" constant="100" id="6m0-o0-ky0"/>
                             <constraint firstItem="itg-fh-5z7" firstAttribute="centerX" secondItem="guj-tG-Ew1" secondAttribute="centerX" id="6yC-1M-Rvb"/>
                             <constraint firstItem="guj-tG-Ew1" firstAttribute="top" secondItem="CfK-ZR-cdL" secondAttribute="bottom" constant="35" id="GYz-qj-LfV"/>
+                            <constraint firstItem="3ma-4s-8ep" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="JyW-LF-8SH"/>
                             <constraint firstItem="itg-fh-5z7" firstAttribute="top" secondItem="guj-tG-Ew1" secondAttribute="bottom" constant="32" id="Lbt-e7-twf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="guj-tG-Ew1" secondAttribute="bottom" constant="159" id="S07-LA-jFA"/>
                             <constraint firstItem="CfK-ZR-cdL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="162" id="X0W-83-EOr"/>
                             <constraint firstItem="CfK-ZR-cdL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="h9Z-ac-MFW"/>
                             <constraint firstItem="guj-tG-Ew1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pU4-41-Xqq"/>
+                            <constraint firstItem="3ma-4s-8ep" firstAttribute="top" secondItem="itg-fh-5z7" secondAttribute="bottom" constant="5" id="pcN-p5-gMi"/>
                             <constraint firstItem="guj-tG-Ew1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vVc-ZK-CEI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="butotn" destination="3ma-4s-8ep" id="82K-7j-8Yq"/>
                         <outlet property="collectionView" destination="guj-tG-Ew1" id="2vo-M9-J9v"/>
                     </connections>
                 </viewController>

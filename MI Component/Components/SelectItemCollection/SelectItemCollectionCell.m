@@ -8,6 +8,7 @@
 
 #import "SelectItemCollectionCell.h"
 #import "VerticalIconTextButton.h"
+#import "THComponents.h"
 
 @interface SelectItemCollectionCell()
 
@@ -83,9 +84,12 @@
     [_button setImage:[UIImage imageNamed:self.viewModel.normalImageName]];
     [_button setSelectedImage:[UIImage imageNamed:self.viewModel.selectedImageName]];
     [_button setText:self.viewModel.title];
+    WEAKSELF
     [_button setTappedAction:^{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectCollectionCell:)]) {
-            [self.delegate didSelectCollectionCell:self];
+        STRONGSELF
+        if (strongSelf.delegate &&
+            [strongSelf.delegate respondsToSelector:@selector(didSelectCollectionCell:)]) {
+            [strongSelf.delegate didSelectCollectionCell:strongSelf];
         }
     }];
     

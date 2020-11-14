@@ -15,9 +15,12 @@
 #import "SelectItemModel.h"
 #import "SelectItemCollection.h"
 
+#import "THComponents.h"
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet SelectItemCollection *collectionView;
+@property (weak, nonatomic) IBOutlet THButton *butotn;
 
 @end
 
@@ -38,6 +41,35 @@
     }
     
     [self.collectionView setViewModels:viewModels];
+    
+    [_butotn setType:THButtonTypePrimary];
+    [_butotn setTitle:@"Button"];
+    [_butotn setImgName:@""];
+    
+//    [[THDialogManager shared] showSuccessDialogWithTitle:@"Thành công"
+//                                                    desc:@"Chúc mừng mày đã tạo thành công Dialog"
+//                                        inViewController:self
+//                                              completion:nil];
+    
+    [[THDialogManager shared] showFailedDialogWithTitle:@"Thất bại"
+                                                   desc:@"Bạn đã tạo thất bại Dialog View :))))"
+                                       inViewController:self
+                                             completion:^{
+        [[THDialogManager shared]
+         showConfirmDialogWithTitle:@"XÁC NHẬN"
+         desc:@"Bạn có chắc chắn với lựa chọn này?"
+         leftButtonTitle:@"Quay lại"
+         leftButtonAction:^{
+            
+        }
+         rightButtonTitle:@"Đồng ý"
+         rightButtonAction:^{
+            [[THDialogManager shared] showSuccessDialogWithTitle:@"Thành công"
+                                                            desc:@"Chúc mừng bạn đã tạo thành công Dialog :)"
+                                                inViewController:self
+                                                      completion:nil];
+        } inViewController:self];
+    }];
 }
 
 - (IBAction)showBottomSheet:(id)sender {
